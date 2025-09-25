@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Image Generator & Job Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Immediately-invoked function to set the theme on page load to avoid FOUC
+      (function() {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Enable dark mode using a class
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                DEFAULT: '#0284c7', // sky-600
+                light: '#38bdf8',   // sky-400
+                dark: '#0369a1',    // sky-700
+              },
+              accent: {
+                DEFAULT: '#ec4899', // pink-500
+                dark: '#db2777',    // pink-600
+              },
+              // Light mode colors
+              background: '#f8fafc', // slate-50
+              surface: '#ffffff',
+              text: {
+                primary: '#1e293b',   // slate-800
+                secondary: '#64748b', // slate-500
+              },
+              // Dark mode colors
+              dark: {
+                background: '#0f172a', // slate-900
+                surface: '#1e293b',    // slate-800
+                text: {
+                  primary: '#e2e8f0',   // slate-200
+                  secondary: '#94a3b8', // slate-400
+                },
+                border: '#334155', // slate-700
+              },
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-in-up': 'slideInUp 0.5s ease-in-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideInUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0"
+  }
+}
+</script>
+</head>
+<body class="bg-background dark:bg-dark-background text-text-primary dark:text-dark-text-primary transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>

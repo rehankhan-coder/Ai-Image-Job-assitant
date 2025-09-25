@@ -1,0 +1,5 @@
+{
+  "name": "AI Image Generator & Job Assistant",
+  "description": "An AI-powered assistant integrated into a job platform. It assists users with job applications, resume submissions, and generates creative AI images. Access requires authentication.",
+  "requestFramePermissions": []
+}
